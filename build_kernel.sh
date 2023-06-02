@@ -59,6 +59,7 @@ copy_defconfig () {
 
 	make ARCH=${KERNEL_ARCH} CROSS_COMPILE="${CC}" distclean
 	if [ ! -f "${DIR}/.yakbuild" ] ; then
+		echo config=${config}
 		make ARCH=${KERNEL_ARCH} CROSS_COMPILE="${CC}" "${config}"
 		cp -v .config "${DIR}/patches/ref_${config}"
 		cp -v "${DIR}/patches/defconfig" .config
